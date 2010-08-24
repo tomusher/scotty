@@ -35,13 +35,13 @@ function get(req, res, user) {
     });
 }
 
-function set(req, res, user, url) {
+function set(req, res, user, qurl) {
     var isUrl = new RegExp('^((?:https?:\/\/|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}\/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:\'".,<>?«»“”‘’]))');
     res.writeHead(200, {"Content-Type": "text/plain"});
-    url = decodeURIComponent(url);
+    qurl = decodeURIComponent(qurl);
     var view = {content: ""};
-    if(isUrl.test(url)) {
-        client.set(user, url, function(err, value) {
+    if(isUrl.test(qurl)) {
+        client.set(user, qurl, function(err, value) {
             if(value) {
                 view.status = 'Saved!';
             } else {
@@ -65,9 +65,11 @@ function user(req, res, user) {
     });
 }
 
-function panel(req, res, user, url) {
+function panel(req, res, user, qurl) {
+    url.parse(qurl, true);
+    sys.log(qurl.query.url);
     var view = {get_link: hostname + user + "/get",
-                set_link: hostname + user + "/set/" + url}
+                set_link: hostname + user + "/set/" + qurl}
     render_with(res, 'panel.html', view, output_to);
 }
 

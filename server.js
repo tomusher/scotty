@@ -66,7 +66,7 @@ function user(req, res, user) {
 }
 
 function panel(req, res, user, qurl) {
-    url.parse(qurl, true);
+    url.parse(req.url, true);
     sys.log(qurl.query.url);
     var view = {get_link: hostname + user + "/get",
                 set_link: hostname + user + "/set/" + qurl}

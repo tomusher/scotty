@@ -103,9 +103,9 @@ function redirect_to(res, location) {
 }
 
 
-server.get(new RegExp("^/(\\w+)/set$"), set);
-server.get(new RegExp("^/(\\w+)/get$"), get);
-server.get(new RegExp("^/(\\w+)/panel$"), panel);
+server.get(new RegExp("^/(\\w+)/set/?$"), set);
+server.get(new RegExp("^/(\\w+)/get/?$"), get);
+server.get(new RegExp("^/(\\w+)/panel/?$"), panel);
 server.get(new RegExp("^/(\\w+)/?$"), user);
 server.get(new RegExp("^/$"), home);
 server.post(new RegExp("^/$"), home);

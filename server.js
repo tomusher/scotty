@@ -8,6 +8,8 @@ var http = require('http'),
     server = router.getServer(),
     mustache = require('./lib/mustache');
 
+var hostname = "http://scotty.tomusher.com/";
+
 function get_user_url(user, callback) { 
     client.exists(user, function(err, value) {
         if(err) throw err;
@@ -64,8 +66,8 @@ function user(req, res, user) {
 }
 
 function panel(req, res, user, url) {
-    var view = {get_link: "http://192.168.0.2:8080/" + user + "/get",
-                set_link: "http://192.168.0.2:8080/" + user + "/set/" + url}
+    var view = {get_link: hostname + user + "/get",
+                set_link: hostname + user + "/set/" + url}
     render_with(res, 'panel.html', view, output_to);
 }
 
@@ -108,5 +110,5 @@ server.get(new RegExp("^/$"), home);
 server.post(new RegExp("^/$"), home);
 server.get(new RegExp("^(\/.+\.(js|css|png|jpg|ico))$"), router.staticDirHandler(__dirname + "/static"));
 
-server.listen(8080, "192.168.0.2");
+server.listen(8080);
 

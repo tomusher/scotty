@@ -35,13 +35,13 @@ function get(req, res, user) {
     });
 }
 
-function set(req, res, user, qurl) {
+function set(req, res, user) {
     var isUrl = new RegExp('^((?:https?:\/\/|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}\/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:\'".,<>?«»“”‘’]))');
     res.writeHead(200, {"Content-Type": "text/plain"});
-    qurl = decodeURIComponent(qurl);
+    parsed_url = url.parse(req.url, true);
     var view = {content: ""};
     if(isUrl.test(qurl)) {
-        client.set(user, qurl, function(err, value) {
+        client.set(user, decodeURIComponent(parsed_url.query.url), function(err, value) {
             if(value) {
                 view.status = 'Saved!';
             } else {
@@ -65,10 +65,10 @@ function user(req, res, user) {
     });
 }
 
-function panel(req, res, user, qurl) {
+function panel(req, res, user) {
     parsed_url = url.parse(req.url, true);
     var view = {get_link: hostname + user + "/get",
-                set_link: hostname + user + "/set/" + parsed_url.query.url}
+                set_link: hostname + user + "/set/?url=" + encodeURIComponent(parsed_url.query.url)}
     render_with(res, 'panel.html', view, output_to);
 }
 
@@ -103,9 +103,9 @@ function redirect_to(res, location) {
 }
 
 
-server.get(new RegExp("^/(\\w+)/set/(.*)$"), set);
+server.get(new RegExp("^/(\\w+)/set$"), set);
 server.get(new RegExp("^/(\\w+)/get$"), get);
-server.get(new RegExp("^/(\\w+)/panel/(.*)?$"), panel);
+server.get(new RegExp("^/(\\w+)/panel$"), panel);
 server.get(new RegExp("^/(\\w+)/?$"), user);
 server.get(new RegExp("^/$"), home);
 server.post(new RegExp("^/$"), home);

@@ -18,5 +18,5 @@
     var querystring =  window.document.getElementById('scottyscript').getAttribute('src');
     username = get_var('user', querystring);
     url = get_var('url', querystring);
-    iframe.setAttribute('src', "http://192.168.0.2:8080/" + username + "/panel/" + url);
+    iframe.setAttribute('src', "http://scotty.tomusher.com/" + username + "/panel/" + url);
 })();

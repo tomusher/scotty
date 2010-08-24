@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Scotty - Beam your browsing</title>
+<link href="/res/base.css" rel="stylesheet" type="text/css" />
+<!--[if lte IE 7]>
+<link href="res/lteie7.css" rel="stylesheet" type="text/css" />
+<![endif]-->
+<!--[if lte IE 6]>
+<link href="res/lteie6.css" rel="stylesheet" type="text/css" />
+<![endif]-->
+</head>
+
+<body>
+<div id="wrapper-page" class="panel">
+        <div id="body-main">
+            {{#status}}
+            <div id="status-message">{{status}}</div>
+            {{/status}}
+            {{^status}}
+            <a href="{{set_link}}">Save This Page</a>
+            <a href="{{get_link}}" target="_top">Fetch Page</a>
+            {{/status}}
+
+        </div>
+</div>
+</body>
+</html>
+

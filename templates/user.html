@@ -1,0 +1,20 @@
+<div id="current-url">
+{{^url}}
+No website set
+{{/url}}
+{{#url}}
+Saved Site: <a href="{{url}}">{{url}}</a>
+{{/url}}
+</div>
+
+<div id="bookmarklet">
+    <p>To install; on each of your devices</p>
+    <p>drag the link to your bookmarks toolbar:
+<a href="javascript:function scotty(){var
+    d=document,z=d.createElement('scr'+'ipt'),b=d.body;try{if(!b)throw(0);z.setAttribute('id','scottyscript');z.setAttribute('src','http://192.168.0.2:8080/scotty.js?user={{username}}&url='+encodeURIComponent(document.URL));b.appendChild(z);}catch(e){window.open('http://192.168.0.2:8080/{{username}}/get');}}scotty();void(0)">Scotty</a></p>
+
+<p>or on mobile browsers, copy the following in to a new bookmark:</p>
+<textarea>
+javascript:function scotty(){var d=document,z=d.createElement('scr'+'ipt'),b=d.body;try{if(!b)throw(0);z.setAttribute('id','scottyscript');z.setAttribute('src','http://192.168.0.2:8080/scotty.js?user={{username}}&url='+encodeURIComponent(document.URL));b.appendChild(z);}catch(e){window.open("http://192.168.0.2:8080/{{username}}/get");}}scotty();void(0)
+</textarea>
+</div>

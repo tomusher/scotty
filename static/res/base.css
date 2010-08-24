@@ -1,0 +1,151 @@
+/**
+ * FlickTo Style
+ */
+
+/**
+ * @section Eric Meyer's CSS Reset
+ */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline;
+}
+:focus {
+	outline: 0;
+}
+body {
+	line-height: 1;
+	color: black;
+	background: white;
+}
+ol, ul {
+	list-style: none;
+}
+table {
+	border-collapse: separate;
+	border-spacing: 0;
+}
+caption, th, td {
+	text-align: left;
+	font-weight: normal;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: "";
+}
+blockquote, q {
+	quotes: "" "";
+}
+
+/**
+ * Base Style
+ */
+body {
+    background: #060720 url('background.jpg') repeat-y top center;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 62.5%;
+}
+
+#wrapper-page {
+    width: 400px;
+    height: 300px;
+    position: absolute;
+    top: 50%;
+    margin-top: -160px;
+    left: 50%;
+    margin-left: -210px;
+    padding: 10px;
+}
+#wrapper-page.panel {
+    height: auto;
+    width: auto;
+    left: auto;
+    top: auto;
+    position: relative;
+    margin: auto;
+}
+#logo {
+    font-size: 3em;
+    color: #fff;
+    text-align: center;
+    font-weight: normal;
+    text-shadow: 1px 1px 3px #000;
+}
+#tagline {
+    font-size: 0.6em;
+    color: #fff;
+}
+
+/* Home */
+form {
+    margin-top: 20px;
+    text-align: center;
+}
+label {
+    color: #686c98;
+    font-size: 1.5em;
+    text-shadow: 1px 1px 3px #000;
+}
+input {
+    background-color: #060720;
+    border: 1px solid #202267;
+    padding: 3px;
+    color: #fff;
+}
+.note {
+    font-size: 1.2em;
+    color: #686c98;
+    margin-top: 5px;
+    text-shadow: 1px 1px 3px #000;
+}
+
+/* User */
+#current-url {
+    font-size: 1.5em;
+    text-align: center;
+    margin-top: 20px;
+    color: #686c98;
+    text-shadow: 1px 1px 3px #000;
+}
+#bookmarklet {
+    text-align: center;
+    margin-top: 20px;
+}
+#bookmarklet p {
+    color: #686c98;
+    margin-bottom: 5px;
+    font-size: 1.5em;
+    text-shadow: 1px 1px 3px #000;
+}
+
+a {
+    color: #686c98;
+}
+.panel {
+    font-size: 1.5em;
+    text-shadow: 1px 1px 3px #000;
+}
+.panel a {
+    display: block;
+    text-align: center;
+    padding: 5px;
+    color: #fff;
+}
+#status-message {
+    color: #fff;
+    text-align: center;
+    padding: 5px;
+}

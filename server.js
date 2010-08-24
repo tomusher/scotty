@@ -67,7 +67,7 @@ function user(req, res, user) {
 
 function panel(req, res, user, url) {
     var view = {get_link: hostname + user + "/get",
-                set_link: hostname + user + "/set/" + decodeURIComponent(url)}
+                set_link: hostname + user + "/set/" + url}
     render_with(res, 'panel.html', view, output_to);
 }
 

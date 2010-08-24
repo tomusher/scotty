@@ -39,9 +39,10 @@ function set(req, res, user) {
     var isUrl = new RegExp('^((?:https?:\/\/|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}\/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:\'".,<>?«»“”‘’]))');
     res.writeHead(200, {"Content-Type": "text/plain"});
     parsed_url = url.parse(req.url, true);
+    var page_url = decodeURIComponent(page_url);
     var view = {content: ""};
-    if(isUrl.test(qurl)) {
-        client.set(user, decodeURIComponent(parsed_url.query.url), function(err, value) {
+    if(isUrl.test(page_url)) {
+        client.set(user, page_url, function(err, value) {
             if(value) {
                 view.status = 'Saved!';
             } else {
